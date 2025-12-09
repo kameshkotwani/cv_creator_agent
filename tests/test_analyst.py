@@ -1,12 +1,6 @@
-import os
-from dotenv import load_dotenv
 from src.graph import app
 from src.utils import load_master_data
 
-# Load Env (API Keys)
-load_dotenv(".env")
-
-print("TERST",load_dotenv(".env"))
 # 1. Dummy Job Description
 dummy_jd = """
 Full job description

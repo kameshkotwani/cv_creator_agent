@@ -29,7 +29,7 @@ def analyst_node(state: CVState):
         INSTRUCTIONS:
         1. "tech_keywords": Extract top 8-10 hard technical skills (e.g., Python, AWS, Spark).
         2. "soft_keywords": Extract top 5-6 soft skills (e.g., Leadership, Communication).
-        3. "role_focus": Write a single short sentence summarizing the primary goal of this role.
+        3. "role_focus": Write a summary of the role summarizing the primary goal of this role.
         
         OUTPUT STRICT JSON FORMAT ONLY:
         {{
