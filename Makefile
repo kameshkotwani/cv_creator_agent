@@ -32,6 +32,10 @@ install:
 run:
 	streamlit run app.py
 
+# Running Agents
+run_graph:
+	$(PYTHON) -m src.graph
+
 # --- TESTING AGENTS ---
 
 # Analyst Agent (Mapped to the file we created: tests/test_step1.py)
@@ -46,6 +50,10 @@ test_summary:
 # Experience Agent (Mapped to: tests/test_step3.py)
 test_experience:
 	$(PYTHON) -m tests.test_experience
+
+# Experience Agent (Mapped to: src/experience.py)
+experience:
+	$(PYTHON) -m src.agents.experience
 
 # --- CLEANUP ---
 clean:

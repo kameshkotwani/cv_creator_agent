@@ -18,3 +18,6 @@ class CVState(TypedDict):
     
     # REVIEW (From Evaluator Agent)
     review: Dict[str, Any]      # {"score": 85, "feedback": "..."}
+    
+    # NEW: Error Flag to stop the execution 
+    error: Optional[str]

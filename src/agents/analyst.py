@@ -53,4 +53,4 @@ def analyst_node(state: CVState):
     except Exception as e:
         print(f"Error in Analyst Agent: {e}")
         # Return empty analysis on failure to prevent crash
-        return {"analysis": {"tech_keywords": [], "soft_keywords": [], "role_focus": "Error parsing JD"}}
+        return {"error": e} # <--- Logic stops here

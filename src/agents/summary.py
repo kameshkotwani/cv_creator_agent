@@ -76,4 +76,4 @@ def summary_node(state: CVState):
         
     except Exception as e:
         print(f"Error in Summary Agent: {e}")
-        return {"summary": "FAILED."}
+        return {"error": e} # <--- Logic stops here

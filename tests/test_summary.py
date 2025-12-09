@@ -16,5 +16,5 @@ state = {
 
 output = app.invoke(state)
 
-print(f"✅ Analyst Found Keywords: {output['analysis'].get('tech_keywords')}")
-print(f"📝 Final Summary:\n{output['summary']}")
+print(f"Analyst Found Keywords: {output['analysis'].get('tech_keywords')}")
+print(f"Final Summary:\n{output['summary']}")

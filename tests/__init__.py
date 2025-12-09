@@ -1,5 +1,5 @@
 DUMMY_JD = """
-Full job description
+Data Scientist
 Remote
 Full Time
 Experienced
@@ -7,36 +7,36 @@ FTC or Permanent
 UK-wide, Remote
 
 About the role
-Olive Jar Digital is seeking a Machine Learning Engineer to help design, build, and refine AI prototypes across multiple Discovery and Alpha initiatives. You will work at the intersection of engineering and data science - transforming experimental models into high-quality, scalable prototypes, shaping technical architecture, and ensuring robust deployment, testing, and documentation.
+Olive Jar Digital is looking for a Data Scientist to play a key role in shaping and delivering several innovative AI initiatives. You will work across Discovery and Alpha phases to turn complex problems into data-driven solutions, helping to refine problem statements, develop prototypes, and evaluate machine learning models.
 
-This role is ideal for someone who enjoys hands-on technical problem-solving, rapid iteration, and collaborating closely with data scientists, engineers, product managers, and researchers.
-
+This role is ideal for someone who enjoys experimentation, rapid iteration, and working closely with engineering, product, research and design teams to bring AI concepts to life.
+ 
 About Olive Jar Digital
 As we grow, we empower our teams to develop their roles and functions and offer support to get you from where you are now, to where you want to be. Moving towards our 10th year, we are now an established brand, building digital products and services and championing the provision of expert talent to enhance customer and in-house teams, satisfying all user needs.
 
 We are a professional, fun, fully Inclusive and diverse digital consultancy, valuing everyone’s opinion. With a huge growth plan over the next two years, we are looking to expand our client facing delivery team with designers, developers, and testers as we continue to expand our project portfolio.
-
+ 
 
 Responsibilities
 
-Build, refine, and optimise AI/ML prototypes, ensuring they meet quality, security, and performance standards.
-Develop and maintain technical design documentation, including architecture, model pipelines, and integration patterns.
-Implement automated deployment pipelines, CI/CD flows, unit/regression testing, and monitoring/telemetry for prototypes.
-Deploy models into development and test environments and support iterative updates based on feedback.
-Collaborate with data scientists on model integration, feature engineering, and evaluation frameworks.
-Ensure codebases follow best practices in engineering, documentation, security, and accessibility. Support playback sessions, technical reviews, and knowledge-transfer activities.
+Analyse data sources, validate problem statements, and highlight gaps or dependencies.
+Build, refine, and iterate machine learning models and AI prototypes.
+Contribute to technical design documentation (model choices, data pipelines, architecture).
+Evaluate models using success metrics, KPIs, performance analysis and bias checks.
+Support functional, regression and performance testing for models and prototypes.
+Collaborate with engineers on deployment pipelines, telemetry, and automated testing.
+Produce clear documentation and contribute to playback sessions and assessment reports.
 
 About You
-Strong experience as an ML Engineer or similar role within AI/ML product development.
-Proficiency in building ML pipelines, APIs, cloud-based deployments, and automated testing.
-Solid software engineering skills (e.g., Python, version control, CI/CD, cloud platforms).
-Ability to work collaboratively with data scientists, engineers, and product teams.
-Comfortable producing clear, structured technical documentation.
-Experience with LLMs, vector databases, retrieval-augmented generation, or intelligent search.
-Familiarity with MLOps tooling, containerisation, and cloud-native environments.
-Exposure to rapid prototyping in Discovery/Alpha phases.
+Strong hands-on experience in data science and machine learning.
+Skilled in model development, evaluation, and iterative experimentation.
+Ability to collaborate effectively with multidisciplinary teams.
+Clear communication of technical insights to both technical and non-technical audiences.
+Experience with NLP, LLMs, vector search or intelligent search tools.
+Familiarity with cloud environments and CI/CD pipelines.
+Exposure to Discovery/Alpha delivery or rapid prototyping.
 
-Benefits
+Benefits 
 25 Days Annual Leave per annum (plus 8 Bank Holidays as standard)
 Health Insurance
 Pension Scheme
