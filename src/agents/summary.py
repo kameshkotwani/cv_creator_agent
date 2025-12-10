@@ -3,10 +3,10 @@ import json
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from src.state import CVState
-from src.utils import get_llm
+from src.utils import get_llm,get_ollma_llm
 
 # Initialize LLM
-llm = get_llm()
+llm = get_ollma_llm()
 
 def summary_node(state: CVState):
     print("--- SUMMARY AGENT: Drafting Profile (Smart Mode)... ---")

@@ -3,13 +3,11 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_google_genai import ChatGoogleGenerativeAI
 from src.state import CVState
+from src.utils import get_ollma_llm, get_llm
 
-# 1. Initialize LLM
-llm = ChatGoogleGenerativeAI(
-    model="gemini-flash-latest",
-    temperature=0.0, # Zero temp for strict analysis
-    google_api_key=os.getenv("GOOGLE_API_KEY")
-)
+# getting LLM
+llm = get_ollma_llm()
+
 
 # 2. Define the Agent Function
 def analyst_node(state: CVState):

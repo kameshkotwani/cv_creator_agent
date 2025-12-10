@@ -4,9 +4,9 @@ from typing import List, Dict
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from src.state import CVState
-from src.utils import get_llm
+from src.utils import get_llm,get_ollma_llm
 # Initialize LLM
-llm = get_llm()
+llm = get_ollma_llm()
 
 def experience_node(state: CVState):
     print("--- EXPERIENCE AGENT: Tailoring Job History... ---")
