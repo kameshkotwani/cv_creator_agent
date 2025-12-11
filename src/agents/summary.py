@@ -21,8 +21,8 @@ def summary_node(state: CVState):
     skills_json = json.dumps(master_cv.get("skills_pool", {}), indent=2)
     
     # Get Analyst Strategy
-    role_focus = state["analysis"].get("role_focus")
-    keywords = state["analysis"].get("tech_keywords")
+    role_focus:list = state["analysis"].get("role_focus",[])
+    keywords:list = state["analysis"].get("tech_keywords",[])
     
     # 2. Define Prompt
     prompt = ChatPromptTemplate.from_template(
@@ -71,9 +71,9 @@ def summary_node(state: CVState):
             "focus": role_focus,
             "keywords": ", ".join(keywords)
         })
-        print(f"Summary Generated.")
+        print("Summary Generated.")
         return {"summary": summary_text}
         
     except Exception as e:
         print(f"Error in Summary Agent: {e}")
-        return {"error": e} # <--- Logic stops here
+        return {"error": e} 

@@ -28,11 +28,11 @@ def get_llm():
 
 def get_ollma_llm():
     return ChatOllama(
-        model="llama3.1", 
+        model="llama3.1",
         temperature=0.8,
-        # Keep it alive in memory for speed
-        keep_alive="5m"
-
+        # 'keep_alive' keeps the model loaded in RAM for 5 minutes 
+        # so subsequent requests are instant.
+        keep_alive="5m" 
     )
 
 # print(load_master_data())
