@@ -24,6 +24,10 @@ def summary_node(state: CVState):
     role_focus:list = state["analysis"].get("role_focus",[])
     keywords:list = state["analysis"].get("tech_keywords",[])
     
+    # adding soft skills in the keywords to increase context
+    keywords.extend(state['analysis'].get("soft_keywords",[]))
+    print(f"TESTING KEYWORDS {keywords}")
+    
     # 2. Define Prompt
     prompt = ChatPromptTemplate.from_template(
         """
