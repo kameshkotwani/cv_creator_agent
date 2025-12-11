@@ -3,10 +3,10 @@ import json
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from src.state import CVState
-from src.utils import get_llm
+from src.utils import get_llm,get_ollma_llm
 
 # Initialize LLM
-llm = get_llm()
+llm = get_ollma_llm()
 
 def summary_node(state: CVState):
     print("--- SUMMARY AGENT: Drafting Profile (Smart Mode)... ---")
@@ -21,8 +21,12 @@ def summary_node(state: CVState):
     skills_json = json.dumps(master_cv.get("skills_pool", {}), indent=2)
     
     # Get Analyst Strategy
-    role_focus = state["analysis"].get("role_focus")
-    keywords = state["analysis"].get("tech_keywords")
+    role_focus:list = state["analysis"].get("role_focus",[])
+    keywords:list = state["analysis"].get("tech_keywords",[])
+    
+    # adding soft skills in the keywords to increase context
+    keywords.extend(state['analysis'].get("soft_keywords",[]))
+    print(f"TESTING KEYWORDS {keywords}")
     
     # 2. Define Prompt
     prompt = ChatPromptTemplate.from_template(
@@ -71,9 +75,9 @@ def summary_node(state: CVState):
             "focus": role_focus,
             "keywords": ", ".join(keywords)
         })
-        print(f"Summary Generated.")
+        print("Summary Generated.")
         return {"summary": summary_text}
         
     except Exception as e:
         print(f"Error in Summary Agent: {e}")
-        return {"error": e} # <--- Logic stops here
+        return {"error": e} 

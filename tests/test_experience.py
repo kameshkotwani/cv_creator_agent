@@ -8,13 +8,12 @@ from . import DUMMY_JD
 
 
 # Test Case: A "Senior Lead" role (Should prioritize Mentorship/Strategy bullets)
-dummy_jd = DUMMY_JD
 
 print("🚀 STARTING TEST 3: EXPERIENCE AGENT")
 print("-" * 40)
 
 initial_state = {
-    "jd_text": dummy_jd,
+    "jd_text": DUMMY_JD,
     "master_cv": load_master_data(),
     "analysis": {},
     "summary": "",
