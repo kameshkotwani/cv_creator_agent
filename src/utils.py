@@ -2,6 +2,7 @@ import json
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_ollama import ChatOllama
+from langchain_core.prompts import ChatPromptTemplate
 
 def load_master_data():
     """Loads the Master CV JSON from the data directory."""
@@ -13,6 +14,7 @@ def load_master_data():
         return json.load(f)
 
 
+# using gemini API, however its free tier is reaching rate limit.
 def get_llm():
     """
     returns the GoogleGenerativeAI model
@@ -28,12 +30,25 @@ def get_llm():
 
 def get_ollma_llm():
     return ChatOllama(
-        model="llama3.1",
+        model="gemma3:12b",
         temperature=0.8,
         # 'keep_alive' keeps the model loaded in RAM for 5 minutes 
         # so subsequent requests are instant.
         keep_alive="5m" 
     )
 
-# print(load_master_data())
-# print(type(load_master_data()))
+def template_loader(name:str):
+    """
+    Loads the templates from prompts directory.
+    
+    :param name: Description
+    :type name: str
+    """
+    import tomllib
+    
+    with open(f"src/agents/prompts/{name}.toml", 'rb') as f:
+        prompt = tomllib.load(f)['prompt']['template']
+
+    return ChatPromptTemplate.from_template(prompt)
+    
+

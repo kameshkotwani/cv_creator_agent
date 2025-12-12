@@ -4,8 +4,7 @@ from typing import List, Dict
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from src.state import CVState
-from src.utils import get_llm, get_ollma_llm
-from src.agents.prompts import EXPERIENCE_PROMPT
+from src.utils import get_llm, get_ollma_llm,template_loader
 # Initialize LLM
 llm = get_ollma_llm()
 
@@ -41,7 +40,7 @@ def experience_node(state: CVState):
         )
 
     # 2. prompts currently in prompts.py
-    prompt = EXPERIENCE_PROMPT
+    prompt = template_loader("experience")
 
     # 3. Invoke Chain
     chain = prompt | llm | JsonOutputParser()
