@@ -5,12 +5,11 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from src.state import CVState
 from src.utils import get_llm, get_ollma_llm,template_loader
-# Initialize LLM
-llm = get_ollma_llm()
 
 
-def experience_node(state: CVState):
+def experience_node(state: CVState,*,llm=None):
     print("--- EXPERIENCE AGENT: Tailoring Job History... ---")
+    llm= llm or get_ollma_llm()
 
     # 1. Prepare Data
     analysis = state["analysis"]
@@ -69,4 +68,4 @@ def experience_node(state: CVState):
     except Exception as e:
         print(f"Error in Experience Agent: {e}")
         # stop the execution if there is an error
-        return {"error": e}
+        return {"error": str(e)}

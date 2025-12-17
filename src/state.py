@@ -1,7 +1,7 @@
 from typing import List, Dict, Any, Optional
 from typing_extensions import TypedDict
 
-class CVState(TypedDict):
+class CVState(TypedDict,total=False):
     # INPUTS
     jd_text: str                # The raw Job Description
     master_cv: Dict[str, Any]   # The loaded master_cv.json content

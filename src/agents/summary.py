@@ -3,17 +3,20 @@ import json
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from src.state import CVState
-from src.utils import get_llm,get_ollma_llm
+from src.utils import get_ollma_llm,template_loader
 
-# Initialize LLM
-llm = get_ollma_llm()
 
-def summary_node(state: CVState):
+def summary_node(state: CVState,*,llm=None):
     print("--- SUMMARY AGENT: Drafting Profile (Smart Mode)... ---")
+    
+    llm = llm or get_ollma_llm()
     
     # 1. Prepare Data
     # We dump the raw experience and projects so the LLM can "see" everything
-    master_cv = state["master_cv"]
+    master_cv = state.get("master_cv",{})
+    if not master_cv:
+        raise ValueError("Empty Master CV")
+    
     
     # We convert lists to JSON strings to keep the prompt clean
     experience_json = json.dumps(master_cv.get("experience", []), indent=2)
@@ -21,47 +24,15 @@ def summary_node(state: CVState):
     skills_json = json.dumps(master_cv.get("skills_pool", {}), indent=2)
     
     # Get Analyst Strategy
-    role_focus:list = state["analysis"].get("role_focus",[])
-    keywords:list = state["analysis"].get("tech_keywords",[])
+    role_focus:list = state.get("analysis",{}).get("role_focus",[])
+    keywords:list = state.get("analysis",{}).get("tech_keywords",[])
     
     # adding soft skills in the keywords to increase context
-    keywords.extend(state['analysis'].get("soft_keywords",[]))
+    keywords.extend(state.get("analysis",{}).get("soft_keywords",[]))
     print(f"TESTING KEYWORDS {keywords}")
     
-    # 2. Define Prompt
-    prompt = ChatPromptTemplate.from_template(
-        """
-        You are an Expert Executive Resume Writer.
-        Your goal is to write a high-impact, 3-sentence Professional Summary.
-        
-        THE GOAL: 
-        Connect the candidate's past achievements to the Target Role's needs.
-        
-        TARGET ROLE FOCUS: {focus}
-        TARGET KEYWORDS: {keywords}
-        
-        CANDIDATE HISTORY:
-        Profile: {profile_title}
-        Experience: {experience}
-        Projects: {projects}
-        Skills: {skills}
-        
-        INSTRUCTIONS:
-        1. Analyze the 'Experience' and 'Projects' to find the 2 biggest "Wins" (Metrics, Deliverables, or Innovations) that prove the candidate fits the Target Role.
-        2. Draft the Summary:
-           - Sentence 1: Hook. State Title + Years of Exp + Core Expertise (using Keywords).
-           - Sentence 2: Proof. Mention the specific "Wins" you found (e.g., "Reduced latency by 40%..." or "Built RAG systems...").
-           - Sentence 3: Value. State the immediate value you bring to the new company.
-           - The whole summary should not be more than 40-50 words.
-        
-        CONSTRAINT:
-        - Strict 3 sentence limit.
-        - Do not hallucinate. Use ONLY facts from the provided History.
-        - Do not use I or first person mentioning.
-        
-        Output ONLY the summary text.
-        """
-    )
+    # 2. prompt is coming from agents.prompts
+    prompt = template_loader("summary")
     
     # 3. Invoke Chain
     chain = prompt | llm | StrOutputParser()
@@ -75,9 +46,9 @@ def summary_node(state: CVState):
             "focus": role_focus,
             "keywords": ", ".join(keywords)
         })
-        print("Summary Generated.")
         return {"summary": summary_text}
         
     except Exception as e:
+        #TODO: remove this after testing
         print(f"Error in Summary Agent: {e}")
-        return {"error": e} 
+        return {"error": str(e)} 

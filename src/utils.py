@@ -4,7 +4,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 
-def load_master_data():
+def load_master_data()->dict:
     """Loads the Master CV JSON from the data directory."""
     # Build path relative to this file
     base_path = os.path.dirname(os.path.dirname(__file__))
@@ -37,7 +37,7 @@ def get_ollma_llm():
         keep_alive="5m" 
     )
 
-def template_loader(name:str):
+def template_loader(name:str)->ChatPromptTemplate:
     """
     Loads the templates from prompts directory.
     
