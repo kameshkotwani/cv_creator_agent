@@ -26,7 +26,8 @@ help:
 
 # --- SETUP ---
 install:
-	$(PIP) install -r requirements.txt
+	$(PIP) install uv
+	uv sync
 
 # --- RUNNING THE APP ---
 run:
@@ -37,23 +38,15 @@ run_graph:
 	$(PYTHON) -m src.graph
 
 # --- TESTING AGENTS ---
+test_nodes:
+	pytest -q -s tests.test_nodes_contract
 
-# Analyst Agent (Mapped to the file we created: tests/test_step1.py)
-test_analyst:
-	$(PYTHON) -m tests.test_analyst
+test_smoke:
+	pytest  -s -m smoke
 
-# Summary Agent Isolated (Mapped to: tests/test_summary_isolated.py)
-test_summary:
-	$(PYTHON) -m tests.test_summary
+test_llm:
+	pytest -s -m llm 
 
-
-# Experience Agent (Mapped to: tests/test_step3.py)
-test_experience:
-	$(PYTHON) -m tests.test_experience
-
-# Experience Agent (Mapped to: src/experience.py)
-experience:
-	$(PYTHON) -m src.agents.experience
 
 # --- CLEANUP ---
 clean:
