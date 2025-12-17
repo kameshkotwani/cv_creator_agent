@@ -68,15 +68,17 @@ The assistant should avoid:
 - Overstating impact beyond what the raw description supports
 
 **Output Format**
-
 Return only valid JSON in this exact structure with no additional text, explanation, or markdown formatting:
 
 OUTPUT STRICT JSON:
-        {{
-            "content": {{
-                "sheffield_research": ["Rewritten Bullet 1", "Rewritten Bullet 2", "Rewritten Bullet 3"],
-                "iqvia": ["Rewritten Bullet 1", "Rewritten Bullet 2", "Rewritten Bullet 3"],
-                "cdac": ["Rewritten Bullet 1", "Rewritten Bullet 2", "Rewritten Bullet 3"]
-            }}
-        }}
+{{
+  "content": {{
+    "<company_name_from_INPUT_3>": ["Rewritten Bullet 1", "Rewritten Bullet 2", "Rewritten Bullet 3"],
+    "<another_company_name_from_INPUT_3>": ["Rewritten Bullet 1", "Rewritten Bullet 2", "Rewritten Bullet 3"],
+    ...
+  }}
+}}
+
+- Use the company names exactly as they appear in INPUT 3 (the 'company' field in each job object) as the keys under "content".
+- Do not use generic keys like "company1", "company2", etc.
 """
