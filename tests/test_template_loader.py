@@ -1,17 +1,19 @@
 from langchain_core.prompts import ChatPromptTemplate
-# testing template loader
-def template_loader(name:str):
-    """
-    Loads the templates from prompts directory.
-    
-    :param name: Description
-    :type name: str
-    """
-    import tomllib
-    
-    with open(f"src/agents/prompts/{name}.toml", 'rb') as f:
-        prompt = tomllib.load(f)['prompt']['template']
+from src.utils import template_loader
+import pytest
 
-    return ChatPromptTemplate.from_template(prompt)
+# testing template loader
+@pytest.mark.parametrize(
+    "name",
+    [
+        "analyst",
+        "summary",  
+        "experience",
+    ],
+)
+def test_template_loader(name):
+    template = template_loader(name)
+    assert isinstance(template, ChatPromptTemplate)
+
+
     
-print(template_loader("experience"))

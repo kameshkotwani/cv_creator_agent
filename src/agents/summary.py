@@ -29,7 +29,6 @@ def summary_node(state: CVState,*,llm=None):
     
     # adding soft skills in the keywords to increase context
     keywords.extend(state.get("analysis",{}).get("soft_keywords",[]))
-    print(f"TESTING KEYWORDS {keywords}")
     
     # 2. prompt is coming from agents.prompts
     prompt = template_loader("summary")
