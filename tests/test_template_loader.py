@@ -1,6 +1,8 @@
-from langchain_core.prompts import ChatPromptTemplate
-from src.utils import template_loader
 import pytest
+from langchain_core.prompts import ChatPromptTemplate
+
+from src.utils import template_loader
+
 
 # testing template loader
 @pytest.mark.parametrize(

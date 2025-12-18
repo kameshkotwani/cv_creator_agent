@@ -1,7 +1,9 @@
 import json
+
 from langchain_core.output_parsers import StrOutputParser
+
 from src.state import CVState
-from src.utils import get_ollma_llm,template_loader
+from src.utils import get_ollma_llm, template_loader
 
 
 def summary_node(state: CVState,*,llm=None):

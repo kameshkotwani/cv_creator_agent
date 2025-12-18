@@ -1,8 +1,10 @@
 import json
 import os
+
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_ollama import ChatOllama
-from langchain_core.prompts import ChatPromptTemplate
+
 
 def load_master_data()->dict:
     """Loads the Master CV JSON from the data directory."""
@@ -10,7 +12,7 @@ def load_master_data()->dict:
     base_path = os.path.dirname(os.path.dirname(__file__))
     file_path = os.path.join(base_path, "data", "master_cv.json")
 
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         return json.load(f)
 
 

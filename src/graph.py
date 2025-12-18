@@ -1,10 +1,12 @@
 # src/graph.py
 
-from langgraph.graph import StateGraph, END
-from src.state import CVState
+from langgraph.graph import END, StateGraph
+
 from src.agents.analyst import analyst_node
+from src.agents.experience import experience_node
 from src.agents.summary import summary_node
-from src.agents.experience import experience_node 
+from src.state import CVState
+
 
 # --- ROUTER LOGIC ---
 # return an error if there is a problem with one of the nodes
