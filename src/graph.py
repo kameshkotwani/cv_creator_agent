@@ -28,36 +28,27 @@ def build_app():
 
     # Analyst -> (Check) -> Summary
     workflow.add_conditional_edges(
-        "analyst",          # Source
-        check_status,       # Logic Function
-        {
-            "continue": "summary", 
-            "error": END
-        }
+        "analyst",  # Source
+        check_status,  # Logic Function
+        {"continue": "summary", "error": END},
     )
 
     # Summary -> (Check) -> Experience
-    workflow.add_conditional_edges(
-        "summary",
-        check_status,
-        {
-            "continue": "experience",
-            "error": END
-        }
-    )
+    workflow.add_conditional_edges("summary", check_status, {"continue": "experience", "error": END})
 
     # Experience -> (Check) -> End
     workflow.add_conditional_edges(
         "experience",
         check_status,
         {
-            "continue": END, # (Later this will go to Projects)
-            "error": END
-        }
+            "continue": END,  # (Later this will go to Projects)
+            "error": END,
+        },
     )
 
     # 4. Compile
     return workflow.compile()
+
 
 # print(build_app().get_graph().draw_ascii())
 # print(app.get_graph().draw_ascii())

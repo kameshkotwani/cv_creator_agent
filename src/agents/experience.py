@@ -6,14 +6,13 @@ from src.state import CVState
 from src.utils import get_ollma_llm, template_loader
 
 
-def experience_node(state: CVState,*,llm=None):
-
+def experience_node(state: CVState, *, llm=None):
     print("--- EXPERIENCE AGENT: Tailoring Job History... ---")
-    llm= llm or get_ollma_llm()
+    llm = llm or get_ollma_llm()
 
     # 1. Prepare Data
     analysis = state["analysis"]
-    keywords = analysis.get("tech_keywords",[])
+    keywords = analysis.get("tech_keywords", [])
     role_focus = analysis.get("role_focus")
 
     # getting the complete job_description
@@ -69,4 +68,3 @@ def experience_node(state: CVState,*,llm=None):
         print(f"Error in Experience Agent: {e}")
         # stop the execution if there is an error
         return {"error": str(e)}
-

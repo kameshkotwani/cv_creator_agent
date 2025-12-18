@@ -13,21 +13,15 @@ def test_graph_end_to_end_with_real_llm():
     if os.getenv("RUN_LLM_TESTS") != "1":
         pytest.skip("Set RUN_LLM_TESTS=1 to run real LLM tests")
 
-   
     # getting fake JD and CV
     master_cv = get_master_cv()
     dummy_jd = get_dummy_jd()
 
     app = build_app()
-    final_state = app.invoke(
-        {"jd_text": dummy_jd, "master_cv": master_cv, "error": None}
-    )
-
+    final_state = app.invoke({"jd_text": dummy_jd, "master_cv": master_cv, "error": None})
 
     # 1) Should not fail
-    assert not final_state.get("error"), (
-        f"Graph failed with error: {final_state.get('error')}"
-    )
+    assert not final_state.get("error"), f"Graph failed with error: {final_state.get('error')}"
 
     # 2) Analyst outputs
     assert "analysis" in final_state
@@ -46,9 +40,7 @@ def test_graph_end_to_end_with_real_llm():
     # Optional: check for at least one obvious keyword from the JD
     # (keep this very loose)
     tech_lower = {k.lower() for k in analysis["tech_keywords"]}
-    assert any(x in tech_lower for x in ["python", "pytorch", "tensorflow"]), analysis[
-        "tech_keywords"
-    ]
+    assert any(x in tech_lower for x in ["python", "pytorch", "tensorflow"]), analysis["tech_keywords"]
 
     # 3) Summary outputs
     assert "summary" in final_state
@@ -67,6 +59,5 @@ def test_graph_end_to_end_with_real_llm():
     assert len(exp) > 0
 
     assert not final_state.get("error")
-    
+
     print("\nFINAL STATE:\n", json.dumps(final_state, indent=2, ensure_ascii=False))
-    
