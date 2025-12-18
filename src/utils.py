@@ -6,7 +6,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_ollama import ChatOllama
 
 
-def load_master_data()->dict:
+def load_master_data() -> dict:
     """Loads the Master CV JSON from the data directory."""
     # Build path relative to this file
     base_path = os.path.dirname(os.path.dirname(__file__))
@@ -25,7 +25,7 @@ def get_llm():
         model="gemini-flash-latest",
         temperature=0.8,  # Creative enough to write good prose, but factual
         google_api_key=os.getenv("GOOGLE_API_KEY"),
-        max_retries=3,      # Retry up to 3 times
+        max_retries=3,  # Retry up to 3 times
         request_timeout=30,  # Wait longer for a response
     )
 
@@ -34,23 +34,22 @@ def get_ollma_llm():
     return ChatOllama(
         model="gemma3:12b",
         temperature=0.8,
-        # 'keep_alive' keeps the model loaded in RAM for 5 minutes 
+        # 'keep_alive' keeps the model loaded in RAM for 5 minutes
         # so subsequent requests are instant.
-        keep_alive="5m" 
+        keep_alive="5m",
     )
 
-def template_loader(name:str)->ChatPromptTemplate:
+
+def template_loader(name: str) -> ChatPromptTemplate:
     """
     Loads the templates from prompts directory.
-    
+
     :param name: Description
     :type name: str
     """
     import tomllib
-    
-    with open(f"src/agents/prompts/{name}.toml", 'rb') as f:
-        prompt = tomllib.load(f)['prompt']['template']
+
+    with open(f"src/agents/prompts/{name}.toml", "rb") as f:
+        prompt = tomllib.load(f)["prompt"]["template"]
 
     return ChatPromptTemplate.from_template(prompt)
-    
-

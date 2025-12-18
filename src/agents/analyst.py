@@ -22,7 +22,7 @@ def analyst_node(state: CVState, *, llm=None):
 
     try:
         analysis_result = chain.invoke({"jd": jd_text})
-        
+
         # Update State: We only update the 'analysis' key
         return {"analysis": analysis_result}
 

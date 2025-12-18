@@ -9,13 +9,10 @@ from src.utils import template_loader
     "name",
     [
         "analyst",
-        "summary",  
+        "summary",
         "experience",
     ],
 )
 def test_template_loader(name):
     template = template_loader(name)
     assert isinstance(template, ChatPromptTemplate)
-
-
-    

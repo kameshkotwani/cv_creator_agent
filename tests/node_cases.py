@@ -12,9 +12,7 @@ NODE_CASES = [
         "name": "analyst",
         "fn": analyst_node,
         "min_state": {"jd_text": DUMMY_JD},
-        "fake_llm": fake_json_llm(
-            '{"tech_keywords":["Python"],"soft_keywords":["Communication"],"role_focus":"x"}'
-        ),
+        "fake_llm": fake_json_llm('{"tech_keywords":["Python"],"soft_keywords":["Communication"],"role_focus":"x"}'),
         "expected_keys": {"analysis"},
     },
     {

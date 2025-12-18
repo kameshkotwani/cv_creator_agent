@@ -16,6 +16,7 @@ def test_node_happy_path(case):
     for k in case["expected_keys"]:
         assert k in patch
 
+
 @pytest.mark.parametrize("case", NODE_CASES, ids=lambda c: c["name"])
 def test_node_failure_sets_error(case):
     state = make_state(**case["min_state"])
