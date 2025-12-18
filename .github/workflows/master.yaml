@@ -1,0 +1,36 @@
+name: master branch workflow
+
+on:
+  push:
+    branches: [ "master" ]   # runs when PR targets master
+  pull_request:
+    branches: [ "master" ]   # runs when commits land on master (after merge)
+
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install deps
+        run: uv sync --dev
+
+      - name: Lint (ruff)
+        run: uv run ruff check .
+        
+      - name: Format check (ruff)
+        run: uv run ruff format --check .
+
+      - name: Tests
+        run: uv run pytest -v
