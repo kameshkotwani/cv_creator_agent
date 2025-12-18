@@ -8,6 +8,7 @@ or raise exceptions, useful for unit testing without calling actual LLMs.
 # tests/helpers/fakes.py
 from langchain_core.runnables import RunnableLambda
 
+
 def fake_json_llm(json_text: str):
     # Works with JsonOutputParser
     return RunnableLambda(lambda _input: json_text)

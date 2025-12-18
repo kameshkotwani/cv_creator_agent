@@ -1,8 +1,10 @@
 import json
 import os
-from tests.helpers.utils import get_master_cv, get_dummy_jd
+
 import pytest
+
 from src.graph import build_app
+from tests.helpers.utils import get_dummy_jd, get_master_cv
 
 
 @pytest.mark.llm

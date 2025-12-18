@@ -1,7 +1,9 @@
 import pytest
+
+from tests.helpers.fakes import fake_fail_llm
 from tests.helpers.state_factory import make_state
 from tests.node_cases import NODE_CASES
-from tests.helpers.fakes import fake_fail_llm
+
 
 @pytest.mark.parametrize("case", NODE_CASES, ids=lambda c: c["name"])
 def test_node_happy_path(case):

@@ -1,4 +1,6 @@
 import pytest
+
+
 @pytest.mark.smoke
 def test_graph_happy_path(monkeypatch):
     import src.graph as graph_mod

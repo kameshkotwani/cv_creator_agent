@@ -1,8 +1,8 @@
-from tests.helpers.fakes import fake_json_llm, fake_text_llm
 from src.agents.analyst import analyst_node
-from src.agents.summary import summary_node
 from src.agents.experience import experience_node
-from tests.helpers.utils import get_master_cv, get_dummy_jd
+from src.agents.summary import summary_node
+from tests.helpers.fakes import fake_json_llm, fake_text_llm
+from tests.helpers.utils import get_dummy_jd, get_master_cv
 
 DUMMY_JD = get_dummy_jd()
 MASTER_CV = get_master_cv()

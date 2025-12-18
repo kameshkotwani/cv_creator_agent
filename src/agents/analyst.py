@@ -1,6 +1,7 @@
 from langchain_core.output_parsers import JsonOutputParser
+
 from src.state import CVState
-from src.utils import get_ollma_llm,template_loader
+from src.utils import get_ollma_llm, template_loader
 
 
 # 2. Define the Agent Function
