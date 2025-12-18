@@ -1,7 +1,7 @@
 [project]
 name = "cv-creator-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "A multi agent system that takes job description and user work and creates a tailored CV, using LangGraph, streamlit and LLMs (obviously)."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -15,3 +15,28 @@ dependencies = [
     "python-dotenv>=1.2.1",
     "ruff>=0.14.8",
 ]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=9.0.2",
+    "ruff>=0.14.8",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = []
+
+[tool.pytest.ini_options]
+
+testpaths = ["tests"]
+
+markers = [
+  "llm: tests that call real LLMs",
+  "smoke: testing graph expected output with fake llm",
+  "node: testing nodes independently"
+]
+

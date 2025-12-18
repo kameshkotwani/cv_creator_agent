@@ -3,11 +3,15 @@ from tests.helpers.state_factory import make_state
 import pytest
 import json
 from src.utils import get_ollma_llm
+import os
 
 
 @pytest.mark.node
 @pytest.mark.parametrize("case", NODE_CASES, ids=lambda c: c["name"])
 def test_node_real_llm(case):
+    # Safety gate to not run this test in CI/CD
+    if os.getenv("RUN_LLM_TESTS") != "1":
+        pytest.skip("Set RUN_LLM_TESTS=1 to run real LLM tests")
     llm = get_ollma_llm()
 
     state = make_state(**case["min_state"])
