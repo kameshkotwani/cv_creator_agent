@@ -1,0 +1,149 @@
+{
+  "profile": {
+    "name": "Test Candidate",
+    "title": "Data Scientist | Cloud Certified",
+    "email": "test.candidate@example.com",
+    "phone": "+44 7000 000000",
+    "linkedin": "https://linkedin.com/in/test-candidate",
+    "portfolio": "https://example.com/portfolio",
+    "location": "United Kingdom"
+  },
+  "education": [
+    {
+      "degree": "MSc Data Science",
+      "institution": "UK Russell Group University",
+      "dates": "2023 -- 2024"
+    },
+    {
+      "degree": "BEng Computer Science",
+      "institution": "International Engineering University",
+      "dates": "2016 -- 2020"
+    }
+  ],
+  "certifications": [
+    "Cloud Data Scientist Certification",
+    "Business Intelligence Certification",
+    "Big Data Analytics Certification"
+  ],
+  "skills_pool": {
+    "Languages": [
+      "Python",
+      "R",
+      "SQL",
+      "Bash"
+    ],
+    "Machine Learning": [
+      "PyTorch",
+      "TensorFlow",
+      "Scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "Statistical Modelling"
+    ],
+    "GenAI & NLP": [
+      "LangChain",
+      "LangGraph",
+      "Vector Databases",
+      "RAG",
+      "NER",
+      "Topic Modelling"
+    ],
+    "Data Engineering": [
+      "Apache Spark",
+      "Airflow",
+      "ETL Pipelines",
+      "Distributed Processing"
+    ],
+    "Cloud & MLOps": [
+      "Cloud ML Platforms",
+      "Docker",
+      "MLflow",
+      "DVC",
+      "CI/CD"
+    ],
+    "Visualization & Tools": [
+      "Power BI",
+      "Streamlit",
+      "FastAPI",
+      "JIRA",
+      "Confluence"
+    ]
+  },
+  "experience": [
+    {
+      "id": "academic_research",
+      "company": "UK Research Institution",
+      "role": "Machine Learning Engineer (Research)",
+      "location": "United Kingdom",
+      "dates": "2024 -- 2025",
+      "bullet_pool": [
+        "Improved object detection performance on thousands of annotated images by evaluating and tuning multiple deep learning architectures.",
+        "Built reproducible ML experimentation pipelines using version control and experiment tracking tools on shared compute infrastructure.",
+        "Provided technical guidance to postgraduate researchers on model validation, data quality, and scalable ML workflows.",
+        "Supported deployment of research models using containerisation and lightweight web interfaces."
+      ]
+    },
+    {
+      "id": "industry_data_engineering",
+      "company": "Global Healthcare Technology Company",
+      "role": "Data Engineer",
+      "location": "International",
+      "dates": "2022 -- 2023",
+      "bullet_pool": [
+        "Designed and maintained distributed data pipelines processing sensitive healthcare datasets using big data technologies.",
+        "Orchestrated batch workflows using scheduling frameworks to support weekly and ad-hoc data ingestion.",
+        "Reduced infrastructure errors by introducing automated data lifecycle management and cleanup processes.",
+        "Collaborated with data scientists to productionise models using CI/CD, containerisation, and experiment tracking."
+      ]
+    },
+    {
+      "id": "nlp_engineering",
+      "company": "Government R&D Organisation",
+      "role": "Machine Learning Engineer",
+      "location": "International",
+      "dates": "2021 -- 2022",
+      "bullet_pool": [
+        "Developed NLP analytics dashboards showcasing entity extraction, topic modelling, and text summarisation.",
+        "Built user-facing interfaces to evaluate multilingual machine translation models, improving accessibility for non-technical users.",
+        "Contributed to conversational AI prototypes and internal knowledge-transfer initiatives."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "rag_chatbot",
+      "title": "Retrieval-Augmented Generation System",
+      "bullet_pool": [
+        "Implemented a semantic search and Q&A system using vector embeddings and local LLMs.",
+        "Delivered a lightweight web interface enabling interactive document exploration.",
+        "Optimised document chunking and embedding strategies for large unstructured files."
+      ]
+    },
+    {
+      "id": "mlops_pipeline",
+      "title": "End-to-End MLOps Pipeline",
+      "bullet_pool": [
+        "Designed a full ML lifecycle pipeline with versioned data, tracked experiments, and automated deployments.",
+        "Exposed trained models via REST APIs using containerised services.",
+        "Validated models using robust evaluation metrics to ensure production readiness."
+      ]
+    },
+    {
+      "id": "computer_vision_project",
+      "title": "Computer Vision Classification System",
+      "bullet_pool": [
+        "Conducted comparative analysis of deep learning architectures for image classification tasks.",
+        "Applied data augmentation and regularisation techniques to improve model generalisation.",
+        "Tracked experiments and ensured reproducibility across GPU-based training runs."
+      ]
+    },
+    {
+      "id": "analytics_project",
+      "title": "Large-Scale Analytics and Visualisation",
+      "bullet_pool": [
+        "Performed distributed analysis on large datasets to uncover domain-level trends.",
+        "Built visual dashboards to communicate insights to technical and non-technical stakeholders."
+      ]
+    }
+  ]
+}
