@@ -48,7 +48,3 @@ def build_app():
 
     # 4. Compile
     return workflow.compile()
-
-
-# print(build_app().get_graph().draw_ascii())
-# print(app.get_graph().draw_ascii())
